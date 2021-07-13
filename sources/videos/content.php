@@ -303,7 +303,6 @@ $pt->page        = $page;
 $pt->title       = $title . ' | ' . $pt->config->title;
 $pt->description = $pt->config->description;
 $pt->keyword     = @$pt->config->keyword;
-print_r($category_image);
 $pt->content     = PT_LoadPage('videos/content', array(
     'TITLE' => $title,
     'COVER' => $category_image,
