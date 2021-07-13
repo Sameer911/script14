@@ -1,0 +1,106 @@
+<div class="container-fluid">
+    <div>
+        <h3>Live Settings</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">Settings</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Live Settings</li>
+            </ol>
+        </nav>
+    </div>
+    <!-- Vertical Layout -->
+    <div class="row">
+        <div class="col-lg-6 col-md-6 pull-left">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title">Live Settings</h6>
+                    <div class="email-settings-alert"></div>
+                    <form class="email-settings" method="POST">
+                        <label for="live_video">Live Video</label>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="live_video" id="live_video-enabled" value="1" <?php echo ($pt->config->live_video == 1) ? 'checked': '';?>>
+                                <label class="form-check-label" for="live_video-enabled">Enabled</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="live_video" id="live_video-disabled" value="0" <?php echo ($pt->config->live_video == 0) ? 'checked': '';?>>
+                                <label class="form-check-label" for="live_video-disabled" class="m-l-20">Disabled</label>
+                            </div>
+                        </div>
+                        <label for="live_video_save">Save user live streams?</label>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="live_video_save" id="live_video_save-enabled" value="1" <?php echo ($pt->config->live_video_save == 1) ? 'checked': '';?>>
+                                <label class="form-check-label" for="live_video_save-enabled">Enabled</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="live_video_save" id="live_video_save-disabled" value="0" <?php echo ($pt->config->live_video_save == 0) ? 'checked': '';?>>
+                                <label class="form-check-label" for="live_video_save-disabled" class="m-l-20">Disabled</label>
+                            </div>
+                        </div>
+                        <label for="who_use_live">Who can use live streams?</label>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="who_use_live" id="who_use_live-enabled" value="all" <?php echo ($pt->config->who_use_live == 'all') ? 'checked': '';?>>
+                                <label class="form-check-label" for="who_use_live-enabled">All Users</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="who_use_live" id="who_use_live-disabled" value="pro" <?php echo ($pt->config->who_use_live == 'pro') ? 'checked': '';?>>
+                                <label class="form-check-label" for="who_use_live-disabled" class="m-l-20">Pro Users</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="who_use_live" id="who_use_live" value="admin" <?php echo ($pt->config->who_use_live == 'admin') ? 'checked': '';?>>
+                                <label class="form-check-label" for="who_use_live" class="m-l-20">Admin</label>
+                            </div>
+                        </div>
+                        <!-- <label for="live_chat">Allow users Stop Chating In live streams?</label>
+                        <div class="form-group">
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="live_chat" id="live_chat-enabled" value="on" <?php echo ($pt->config->live_chat == 'on') ? 'checked': '';?>>
+                                <label class="form-check-label" for="live_chat-enabled">Enabled</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input  class="form-check-input" type="radio" name="live_chat" id="live_chat-disabled" value="off" <?php echo ($pt->config->live_chat == 'off') ? 'checked': '';?>>
+                                <label class="form-check-label" for="live_chat-disabled" class="m-l-20">Disabled</label>
+                            </div>
+                        </div> -->
+                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="clearfix"></div>
+    </div>
+    <!-- #END# Vertical Layout -->
+<script>
+
+
+$(function() {
+    var form_email_settings = $('form.email-settings');
+    form_email_settings.ajaxForm({
+        url: '{{LINK aj/ap/save-settings}}',
+        beforeSend: function() {
+            form_email_settings.find('button').text('Please wait..');
+        },
+        success: function(data) {
+            if (data.status == 200) {
+                form_email_settings.find('button').text('Save');
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+                $('.email-settings-alert').html('<div class="alert alert-success"><i class="fa fa-check"></i> Settings updated successfully</div>');
+                setTimeout(function () {
+                    $('.email-settings-alert').empty();
+                }, 2000);
+            }
+        }
+    });
+
+    
+});
+</script>

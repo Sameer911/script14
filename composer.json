@@ -1,0 +1,5 @@
+{
+    "require": {
+        "api-video/php-sdk": "^1.8"
+    }
+}

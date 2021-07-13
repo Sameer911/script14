@@ -1,0 +1,102 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "de9d8e807d73b63eeabc063cef87aefc",
+    "packages": [
+        {
+            "name": "api-video/php-sdk",
+            "version": "1.8.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/apivideo/php-sdk.git",
+                "reference": "242385834eafa4d60277cb646ad1a362a05edcd3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/apivideo/php-sdk/zipball/242385834eafa4d60277cb646ad1a362a05edcd3",
+                "reference": "242385834eafa4d60277cb646ad1a362a05edcd3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "kriswallsmith/buzz": "^0.15",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ApiVideo\\Client\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP client for api.video web services.",
+            "time": "2021-04-07T13:59:43+00:00"
+        },
+        {
+            "name": "kriswallsmith/buzz",
+            "version": "v0.15.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "d0b82d8a6169276f91f445c26792ff4a2b11e831"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/d0b82d8a6169276f91f445c26792ff4a2b11e831",
+                "reference": "d0b82d8a6169276f91f445c26792ff4a2b11e831",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3.3 || ^7.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^3.3"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Buzz\\": "lib/Buzz"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ],
+            "time": "2017-11-24T19:18:50+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
